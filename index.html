@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chief Trade Plus Light/Dark Mode Preview</title>
+  <title>Light/Dark Mode Preview</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TwentyTwenty CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twentytwenty/1.0.0/twentytwenty.min.css">
   <style>
     body {
       background: #f4f4f4;
-      font-family: Arial, sans-serif;
-      padding: 50px;
+      font-family: sans-serif;
+      padding: 30px;
       text-align: center;
-    }
-    .twentytwenty-container {
-      max-width: 800px;
-      margin: 0 auto;
     }
     h1 {
       margin-bottom: 40px;
+    }
+    .twentytwenty-container {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .twentytwenty-container img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
   </style>
 </head>
@@ -27,12 +34,20 @@
     <img src="CTP-light.png" alt="Light Mode">
     <img src="CTP-dark.png" alt="Dark Mode">
   </div>
+  <!-- jQuery + plugins -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.event.move/2.0.0/jquery.event.move.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twentytwenty/1.0.0/jquery.twentytwenty.min.js"></script>
+  <!-- Init -->
   <script>
-    $(function(){
-      $(".twentytwenty-container").twentytwenty();
+    $(function() {
+      $(".twentytwenty-container").twentytwenty({
+        default_offset_pct: 0.5,
+        orientation: 'horizontal',
+        before_label: 'Light Mode',
+        after_label: 'Dark Mode',
+        no_overlay: true
+      });
     });
   </script>
 </body>
