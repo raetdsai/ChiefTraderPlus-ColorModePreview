@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Light/Dark Mode Preview</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twentytwenty@1.0.0/dist/twentytwenty.min.css">
+  <title>Light / Dark Mode Comparison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- twentytwenty + dependencies -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twentytwenty@1.0.0/css/twentytwenty.css">
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f4f4f4;
-      padding: 40px;
       margin: 0;
+      padding: 20px;
+      background: #fff;
+      font-family: sans-serif;
       text-align: center;
     }
     h1 {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
     }
     .twentytwenty-container {
       width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
     }
     .twentytwenty-container img {
       width: 100%;
@@ -30,14 +35,17 @@
 </head>
 <body>
   <h1>Light / Dark Mode Preview</h1>
-  <div class="twentytwenty-container">
-    <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-light.png" alt="Light Mode">
-    <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-dark.png" alt="Dark Mode">
+  <div class="container">
+    <div class="twentytwenty-container">
+      <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-light.png" alt="Light mode">
+      <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-dark.png" alt="Dark mode">
+    </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/twentytwenty@1.0.0/dist/jquery.twentytwenty.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/eventmove@2.0.0/js/jquery.event.move.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/twentytwenty@1.0.0/js/jquery.twentytwenty.min.js"></script>
   <script>
-    $(document).ready(function() {
+    $(function(){
       $(".twentytwenty-container").twentytwenty({
         default_offset_pct: 0.5,
         orientation: 'horizontal',
