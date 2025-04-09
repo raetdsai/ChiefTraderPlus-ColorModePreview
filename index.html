@@ -3,73 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Light/Dark Mode Preview</title>
+  <title>Light/Dark Mode</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twentytwenty@1.0.0/dist/twentytwenty.min.css">
   <style>
     body {
       font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
       background-color: #f4f4f4;
+      padding: 40px;
+      margin: 0;
       text-align: center;
     }
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
-    .image-container {
-      position: relative;
+    .twentytwenty-container {
       width: 100%;
       max-width: 800px;
       margin: 0 auto;
-      overflow: hidden;
     }
-    .image-container img {
+    .twentytwenty-container img {
       width: 100%;
+      height: auto;
       display: block;
-    }
-    .slider {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      cursor: ew-resize;
-      z-index: 10;
     }
   </style>
 </head>
 <body>
   <h1>Light / Dark Mode Preview</h1>
-  <div class="image-container">
-    <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-light.png" alt="Light Mode" id="img-light">
-    <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-dark.png" alt="Dark Mode" id="img-dark">
-    <div class="slider" id="slider"></div>
+  <div class="twentytwenty-container">
+    <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-light.png" alt="Light Mode">
+    <img src="https://raw.githubusercontent.com/raetdsai/library/main/CTP-dark.png" alt="Dark Mode">
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/twentytwenty@1.0.0/dist/jquery.twentytwenty.min.js"></script>
   <script>
-    const slider = document.getElementById('slider');
-    const imgContainer = document.querySelector('.image-container');
-    const imgLight = document.getElementById('img-light');
-    let isDragging = false;
-    // Initialize slider position
-    let sliderPosition = imgContainer.offsetWidth / 2;
-    slider.style.left = sliderPosition + 'px';
-    // Handle mouse events
-    slider.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-        document.removeEventListener('mousemove', onMouseMove);
+    $(document).ready(function() {
+      $(".twentytwenty-container").twentytwenty({
+        default_offset_pct: 0.5,
+        orientation: 'horizontal',
+        no_overlay: true
       });
     });
-    function onMouseMove(e) {
-      if (isDragging) {
-        let newPosition = e.clientX - imgContainer.getBoundingClientRect().left;
-        // Ensure the slider stays within bounds
-        newPosition = Math.max(0, Math.min(newPosition, imgContainer.offsetWidth));
-        slider.style.left = newPosition + 'px';
-        imgLight.style.width = newPosition + 'px';
-      }
-    }
   </script>
 </body>
 </html>
