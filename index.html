@@ -46,8 +46,9 @@
   <script src="js/jquery.event.move.js"></script>
   <script src="js/jquery.twentytwenty.js"></script>
   <script>
-    $(function () {
-      $(".twentytwenty-container").twentytwenty({
+    $(window).on('load', function() {
+  $(".twentytwenty-container").twentytwenty();
+});
         default_offset_pct: 0.5,
         orientation: 'horizontal',
         no_overlay: true
